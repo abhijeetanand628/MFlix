@@ -2,8 +2,11 @@ import SearcBar from "@/components/SearcBar";
 import { icons } from "@/constants/icons";
 import { images } from "@/constants/images";
 import { Text, View, Image, ScrollView } from "react-native";
+import { useRouter } from "expo-router";
 
 export default function Index() {
+const router = useRouter();
+
   return (
     <View style={{flex: 1, backgroundColor: '#030014'}}>
       <Image source={images.bg} 
@@ -16,7 +19,10 @@ export default function Index() {
         style={{width: 35, height: 35, marginTop: 60, marginBottom: 5, marginHorizontal: 'auto'}}
         />
         <View style={{flex: 1, marginTop: 5}}>
-          <SearcBar />
+          <SearcBar 
+            onPress={() => router.push("/search")}
+            placeholder = "Search for a movie"
+          />
         </View>
       </ScrollView>
     </View>
